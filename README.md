@@ -1,39 +1,59 @@
-# todo-list
+# Título do projeto
 
-This template should help get you started developing with Vue 3 in Vite.
+Uma aplicação de lista de tarefas organizada, desenvolvida com Vue 3, que permite criar grupos de tarefas (como 'Faculdade', 'Trabalho' etc.) e subdividir cada grupo em categorias específicas para melhor organização.
 
-## Recommended IDE Setup
+## 🚀 Começando
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+Para começar a usar o projeto, basta clonar o repositório:
+```
+git clone https://github.com/LeonardoMelloTrindade/to-do-list.git
+```
 
-## Type Support for `.vue` Imports in TS
+### 📋 Pré-requisitos
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+* [NodeJS](https://nodejs.org/pt) - Plataforma necessária para rodar o ambiente de desenvolvimento
 
-## Customize configuration
+## 🛠️ Construído com
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+Mencione as ferramentas que você usou para criar seu projeto
 
-## Project Setup
+* [Vue 3](https://vuejs.org) -  Framework para desenvolvimento web
+* [TypeScript](https://www.typescriptlang.org) - Linguagem que adiciona tipagem ao JavaScript
 
-```sh
+### 📦 Bibliotecas externas
+
+O projeto também utiliza bibliotecas externas para complementar suas funcionalidades:
+
+* vue-router - Biblioteca para gerenciamento de rotas na aplicação Vue.
+* typescript - Linguagem que adiciona tipagem ao JavaScript, tornando o código mais seguro.
+* @vue/eslint-config-typescript - Configuração do ESLint para suportar Vue com TypeScript.
+* eslint - Ferramenta para garantir a qualidade e a padronização do código.
+* eslint-plugin-vue - Plugin ESLint com regras específicas para Vue.
+* husky - Ferramenta para criação de hooks de Git, útil para automatizar verificações de código antes dos commits.
+
+### 🔧 Instalação
+
+Navegue até o diretório do projeto e instale as dependências com o comando:
+```
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+### ⏯️ Comandos
 
-```sh
+Iniciar o servidor de desenvolvimento
+```
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
+Executar o lint e checar os tipos
+```
+npm run test
+```
 
-```sh
+Para gerar o build para produção
+```
 npm run build
 ```
+## ✒️ Autor
 
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+* **Leonardo Mello Trindade** - *Documentação e Desenvolvimento* - ([https://github.com/linkParaPerfil](https://github.com/LeonardoMelloTrindade))
