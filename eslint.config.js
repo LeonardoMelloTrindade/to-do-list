@@ -14,7 +14,9 @@ export default [
     rules: {
       semi: ['error', 'always'],
       quotes: ['error', 'single'],
-      'default-case': 'error'
+      'default-case': 'error',
+      'no-var': 'error',
+      'no-console': 'error'
     }
   },
   ...pluginVue.configs['flat/essential'],
