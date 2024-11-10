@@ -1,4 +1,6 @@
-import PillarContainer from '@/components/container/pillarContainer.vue';
+// import GroupsList from '@/page/groupsList.vue';
+import App from '@/App.vue';
+
 import { createRouter, createWebHistory } from 'vue-router';
 
 
@@ -8,7 +10,7 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: PillarContainer
+      component: App
     },
   ]
 });
