@@ -1,5 +1,4 @@
-// import GroupsList from '@/page/groupsList.vue';
-import App from '@/App.vue';
+import ListGroups from '@/page/listGroups.vue';
 
 import { createRouter, createWebHistory } from 'vue-router';
 
@@ -10,7 +9,7 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: App
+      component: ListGroups
     },
   ]
 });
