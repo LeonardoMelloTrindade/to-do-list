@@ -1,7 +1,7 @@
 <template>
   <main class="grid-pillar">
     <PillarLayout position="right"/>
-    <slot>aqui fica o componente de cada centerContent de cada pages</slot>
+    <slot name="main"></slot>
     <PillarLayout position="left"/>
   </main>
 </template>

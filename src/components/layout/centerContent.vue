@@ -1,16 +1,13 @@
 <template>
-  <main class="background">
-    <slot></slot>
+  <main>
+    <header>
+      <slot name="title"></slot>
+    </header>
+    <article>
+      <slot name="button"></slot>
+    </article>
+    <main>
+      <slot name="list"></slot>
+    </main>
   </main>
 </template>
-
-<script setup lang="ts">
-import { theme } from '@/styles/theme';
-
-</script>
-
-<style scoped>
-.background {
-  background-color: v-bind('theme');
-}
-</style>
