@@ -3,7 +3,7 @@
     <template #main>
       <CenterContent>
         <template #title>
-          <TitleHeader title="Leopple To do" />
+          <TitleHeader title="Leopple To do " />
         </template>
         <template #button>
           <BtnAdd label=" + Criar Grupo "/>
