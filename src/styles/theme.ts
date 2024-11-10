@@ -1,7 +1,7 @@
 export const theme = {
-  primary: '#615cd6',
-  secondary: '#8984e0',
-  background: '#fffaff',
-  background_alternative: '#d8d3f5',
-  highlight: '#b0abea'
+  primary: '#10e68e',
+  secondary: '#35eca7',
+  background: '#b8ffe7',
+  background_alternative: '#5af3c0',
+  highlight: '#a4fff2'
 };
