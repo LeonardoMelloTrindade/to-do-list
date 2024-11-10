@@ -1,4 +1,4 @@
-import App from '@/App.vue';
+import PillarContainer from '@/components/container/pillarContainer.vue';
 import { createRouter, createWebHistory } from 'vue-router';
 
 
@@ -8,7 +8,7 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: App
+      component: PillarContainer
     },
   ]
 });
