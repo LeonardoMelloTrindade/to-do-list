@@ -6,8 +6,21 @@
     <article>
       <slot name="button"></slot>
     </article>
-    <main>
+    <main class="container-lists">
       <slot name="list"></slot>
     </main>
   </main>
 </template>
+
+<style scoped>
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container-lists {
+  margin-top: 7em;
+}
+
+</style>

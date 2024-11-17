@@ -19,4 +19,6 @@ import PillarLayout from '../layout/PillarLayout.vue';
   grid-template-columns: 1fr 4fr 1fr;
   height: 100%;
 }
+
+
 </style>
