@@ -17,10 +17,10 @@
 </template>
 
 <script setup lang="ts">
-import ContainerMain from '@/components/container/containerMain.vue';
-import TitleHeader from '@/components/ui/titleHeader.vue';
-import CenterContent from '@/components/layout/centerContent.vue';
-import BtnAdd from '@/components/ui/btnAdd.vue';
+import ContainerMain from '@/components/container/ContainerMain.vue';
+import TitleHeader from '@/components/ui/TitleHeader.vue';
+import CenterContent from '@/components/layout/CenterContent.vue';
+import BtnAdd from '@/components/ui/BtnAdd.vue';
 
 </script>
 

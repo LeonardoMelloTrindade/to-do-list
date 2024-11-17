@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts">
-import PillarLayout from '../layout/pillarLayout.vue';
+import PillarLayout from '../layout/PillarLayout.vue';
 
 
 
