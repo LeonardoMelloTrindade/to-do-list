@@ -1,5 +1,4 @@
-import ListGroups from '@/page/listGroups.vue';
-
+import ListGroups from '@/pages/ListGroups.vue';
 import { createRouter, createWebHistory } from 'vue-router';
 
 
