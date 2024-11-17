@@ -3,7 +3,7 @@
     <template #main>
       <CenterContent>
         <template #title>
-          <TitleHeader title="Leopple To do " />
+          <TitleHeader title="Grupos de tarefas" />
         </template>
         <template #button>
           <BtnAdd label=" + Criar Grupo "/>
@@ -21,9 +21,4 @@ import ContainerMain from '@/components/container/containerMain.vue';
 import TitleHeader from '@/components/ui/TitleHeader.vue';
 import CenterContent from '@/components/layout/CenterContent.vue';
 import BtnAdd from '@/components/ui/BtnAdd.vue';
-
 </script>
-
-<style scope>
-h1 {}
-</style>
