@@ -9,7 +9,7 @@
           <BtnAdd label=" + Criar Grupo "/>
         </template>
         <template #list>
-          oi
+          <ContainerList :itensNavigation="['Grupos', 'Geral']"/>
         </template>
       </CenterContent>
     </template>
@@ -17,8 +17,9 @@
 </template>
 
 <script setup lang="ts">
-import ContainerMain from '@/components/container/containerMain.vue';
+import ContainerMain from '@/components/container/ContainerMain.vue';
 import TitleHeader from '@/components/ui/TitleHeader.vue';
 import CenterContent from '@/components/layout/CenterContent.vue';
 import BtnAdd from '@/components/ui/BtnAdd.vue';
+import ContainerList from '@/components/ui/ContainerList.vue';
 </script>
