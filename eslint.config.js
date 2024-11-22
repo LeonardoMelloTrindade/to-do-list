@@ -16,8 +16,12 @@ export default [
       quotes: ['error', 'single'],
       'default-case': 'error',
       'no-var': 'error',
-      'no-console': 'error'
-    }
+      'no-console': 'error',
+      'eqeqeq': ['error', 'always'],
+      'comma-dangle': ['error', 'always-multiline'],
+      'key-spacing': ['error', { 'beforeColon': false, 'afterColon': true }],
+      'space-infix-ops': 'error',
+    },
   },
   ...pluginVue.configs['flat/essential'],
   ...vueTsEslintConfig(),

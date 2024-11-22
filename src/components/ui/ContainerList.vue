@@ -19,7 +19,7 @@
 import ListGroupItem from '@/components/ui/ListGroupItem.vue';
 
 const { itensNavigation } = defineProps({
-  itensNavigation: Array<string>
+  itensNavigation: Array<string>,
 });
 
 </script>

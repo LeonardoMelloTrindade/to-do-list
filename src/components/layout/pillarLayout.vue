@@ -5,7 +5,7 @@
 <script setup lang="ts">
 const { position } = defineProps(['position']);
 
-const cssPosistioShadow = position == 'right' ? '10px' : '-10px';
+const cssPosistioShadow = position === 'right' ? '10px' : '-10px';
 
 </script>
 
