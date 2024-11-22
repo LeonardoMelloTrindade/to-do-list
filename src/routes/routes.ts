@@ -8,9 +8,9 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: ListGroups
+      component: ListGroups,
     },
-  ]
+  ],
 });
 
 export default router;
