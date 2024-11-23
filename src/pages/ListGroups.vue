@@ -20,6 +20,6 @@
 import TitleHeader from '@/components/ui/TitleHeader.vue';
 import BtnAdd from '@/components/ui/BtnAdd.vue';
 import ContainerList from '@/components/ui/ContainerList.vue';
-import ContainerMain from '@/components/container/containerMain.vue';
-import CenterContent from '@/components/layout/centerContent.vue';
+import ContainerMain from '@/components/container/ContainerMain.vue';
+import CenterContent from '@/components/layout/CenterContent.vue';
 </script>

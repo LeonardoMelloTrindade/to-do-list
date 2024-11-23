@@ -1,9 +1,10 @@
 <template>
-  <button>{{ label }}</button>
+  <Button>{{ label }}</Button>
 </template>
 
 <script setup lang="ts">
-import { theme } from '@/styles/theme';
+// import { theme } from '@/styles/theme';
+import { Button } from 'primevue';
 
 const { label } = defineProps(['label']);
 
@@ -11,7 +12,7 @@ const { label } = defineProps(['label']);
 </script>
 
 <style scoped>
-button {
+/* button {
   background-color: v-bind('theme.highlight');
   width: 10em;
   height: 30px;
@@ -22,5 +23,5 @@ button {
 button:hover {
   box-shadow: 3px 5px 1px #7e7e7e;
   transition: 0.5s;
-}
+} */
 </style>
