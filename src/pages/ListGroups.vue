@@ -6,7 +6,7 @@
           <TitleHeader title="Grupos de tarefas" />
         </template>
         <template #button>
-          <BtnAdd label=" + Criar Grupo "/>
+          <BtnAdd label="Criar Grupo "/>
         </template>
         <template #list>
           <ContainerList :itensNavigation="['Grupos', 'Geral']"/>
