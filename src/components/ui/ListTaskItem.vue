@@ -4,21 +4,26 @@
       <div>
         <div v-for="(item, index) in slotProps.items" :key="index" class="item-list">
           <section class="container-item-img">
-            <article class="container-img">
-              <Button icon="pi pi-check" aria-label="Filter" />
+            <article class="container-btn">
+              <Button icon="pi pi-check" aria-label="Filter" severity="success" variant="outlined"/>
             </article>
             <article class="container-name">
               <p>{{ item.name }}</p>
+              <p class="description">{{ item.description }}</p>
             </article>
           </section>
           <section class="container-info-tasks">
             <div class="info-tasks">
-              <p>Total de tarefas</p>
-              <p>{{ item.alltasks }}</p>
+              <p>Status</p>
+              <p>{{ item.status }}</p>
             </div>
             <div class="info-tasks">
-              <p>Tarefas finalizadas</p>
-              <p>{{ item.alltasksFinished }}</p>
+              <p>Prazo</p>
+              <p>{{ item.timePeriod }}</p>
+            </div>
+            <div class="info-tasks">
+              <p>Prioridade</p>
+              <p>{{ item.priority }}</p>
             </div>
             <div class="info-tasks">
               <BtnOptionItem />
@@ -33,32 +38,33 @@
 <script setup lang="ts">
 import { DataView, Button } from 'primevue';
 import BtnOptionItem from './BtnOptionItem.vue';
+import { type Task } from './../../interfaces/Task';
 
 const props = defineProps<{ task: Task[] }>();
 </script>
 
 <style scoped>
-p {
-  text-align: center;
-}
-
 .item-list {
   display: flex;
   justify-content: space-between;
-  margin-top: 5px;
-  padding-bottom: 5px;
-  border-bottom: 2px solid gray;
+  margin: 5px 0;
 }
 
 .container-item-img {
   display: flex;
   flex-direction: row;
+  align-items: center;
 }
 
-img, .container-img {
-  height: 100%;
+img, .container-btn {
   width: 5.5rem;
   border-radius: 5px;
+}
+
+.container-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .container-name {
@@ -74,5 +80,10 @@ img, .container-img {
 
 .info-tasks {
   margin: 0 15px;
+  text-align: center;
+}
+
+.description {
+  font-size: 0.6em;
 }
 </style>

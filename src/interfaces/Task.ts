@@ -4,5 +4,5 @@ export interface Task {
   description?: string,
   timePeriod: string,
   status: 'A Fazer' | 'Em Progresso' | 'Concluído',
-  priority: 1 | 2 | 3 | 4
+  priority: 1 | 2 | 3 | 4 | 5
 }

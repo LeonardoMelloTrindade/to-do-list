@@ -33,6 +33,7 @@
 <script setup lang="ts">
 import { DataView } from 'primevue';
 import BtnOptionItem from './BtnOptionItem.vue';
+import { type Session } from '@/interfaces/Session';
 
 
 const props = defineProps<{ session: Session[] }>();
@@ -46,8 +47,7 @@ p {
 .item-list {
   display: flex;
   justify-content: space-between;
-  padding-bottom: 5px;
-  border-bottom: 2px solid gray;
+  margin: 5px 0;
 }
 
 .container-item-img {
@@ -55,10 +55,16 @@ p {
   flex-direction: row;
 }
 
-img, .container-img {
-  height: 100%;
-  width: 5.5rem;
+img {
+
+  height: 5.2rem;
+  width: 5.2rem;
   border-radius: 5px;
+}
+
+.container-img {
+  display: flex;
+  justify-content: center;
 }
 
 .container-name {
