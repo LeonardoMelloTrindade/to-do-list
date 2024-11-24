@@ -1,41 +1,91 @@
 <template>
-  <div class="container">
-    <article class="container-group">
+  <DataView :value="props.session" data-key="id" paginator :rows="5">
+    <template #list="slotProps">
       <div>
-        {{ name }}
+        <div v-for="(item, index) in slotProps.items" :key="index" class="item-list">
+          <section class="container-item-img">
+            <article class="container-img">
+              <img :src="item.image" :alt="item.name">
+            </article>
+            <article class="container-name">
+              <p>{{ item.name }}</p>
+            </article>
+          </section>
+          <section class="container-info-tasks">
+            <div class="info-tasks">
+              <p>Total de tarefas</p>
+              <p>{{ item.alltasks }}</p>
+            </div>
+            <div class="info-tasks">
+              <p>Tarefas finalizadas</p>
+              <p>{{ item.alltasksFinished }}</p>
+            </div>
+            <div class="info-tasks">
+              <BtnOptionItem />
+            </div>
+          </section>
+        </div>
       </div>
-      <div class="container-tasks">
-        <span>Tarefas totais: {{ alltasks }}</span>
-        <span>Tarefas finalizadas: {{ alltasksFinished }}</span>
-        <span>3 pontios</span>
-      </div>
-    </article>
-  </div>
+    </template>
+  </DataView>
 </template>
 
 <script setup lang="ts">
-import { theme } from '@/styles/theme';
+import { DataView } from 'primevue';
+import BtnOptionItem from './BtnOptionItem.vue';
 
-const { name, alltasks, alltasksFinished } = defineProps(['name', 'alltasks', 'alltasksFinished']);
+interface Session {
+  id: number,
+  name: string,
+  alltasks: string,
+  alltasksFinished: string,
+  image?: string
+}
+
+
+const props = defineProps<{ session: Session[] }>();
 </script>
 
 <style scoped>
-span:nth-child(1), span:nth-child(2) {
-  margin-right: 10px;
+p {
+  text-align: center;
 }
 
-.container {
-  display: flex;
-  justify-content: center;
-}
-
-.container-group {
-  color: v-bind('theme.background');
-  border: 1px solid v-bind('theme.background');
-  width: 95%;
+.item-list {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 10px;
-  padding: 10px 5px;
+  margin-top: 5px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid gray;
+}
+
+.container-item-img {
+  display: flex;
+  flex-direction: row;
+}
+
+img, .container-img {
+  height: 100%;
+  width: 5.5rem;
+  border-radius: 5px;
+}
+
+.container-name {
+  margin-left: 5px;
+}
+
+.container-info-tasks {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.info-tasks {
+  margin: 0 15px;
+}
+
+.p-menu {
+  z-index: 9999;
 }
 </style>

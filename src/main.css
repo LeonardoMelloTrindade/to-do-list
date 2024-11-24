@@ -1,13 +1,5 @@
-:root {
-  --primary-color: #10e68e;
-  --secondary-color: #10e68e;
-  --background: #b8ffe7;
-  --background-alternative: #5af3c0;
-  --highlight: #a4fff2;
-}
-
 html, body, #app {
-    background-color: var(--background);
+    background-color: #b8ffe7;
     height: 100%;
     font-family: Arial, Helvetica, sans-serif;
     width: 100%;
