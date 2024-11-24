@@ -5,7 +5,7 @@
         <ListGroupItem  :session="session"/>
       </template>
       <template #allTasks>
-        <div>Tasks</div>
+        <TaskItem />
       </template>
     </NavContainerList>
 
@@ -15,6 +15,7 @@
 <script setup lang="ts">
 import ListGroupItem from '@/components/ui/ListGroupItem.vue';
 import NavContainerList from './NavContainerList.vue';
+import TaskItem from './TaskItem.vue';
 
 const { itensNavigation } = defineProps({
   itensNavigation: Array<string>,

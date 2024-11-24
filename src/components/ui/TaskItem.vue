@@ -5,7 +5,7 @@
         <div v-for="(item, index) in slotProps.items" :key="index" class="item-list">
           <section class="container-item-img">
             <article class="container-img">
-              <img :src="item.image" :alt="item.name">
+              <Button />
             </article>
             <article class="container-name">
               <p>{{ item.name }}</p>
@@ -31,7 +31,7 @@
 </template>
 
 <script setup lang="ts">
-import { DataView } from 'primevue';
+import { DataView, Button } from 'primevue';
 import BtnOptionItem from './BtnOptionItem.vue';
 
 interface Session {
@@ -54,6 +54,7 @@ p {
 .item-list {
   display: flex;
   justify-content: space-between;
+  margin-top: 5px;
   padding-bottom: 5px;
   border-bottom: 2px solid gray;
 }
