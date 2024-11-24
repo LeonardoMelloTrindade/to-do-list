@@ -1,24 +1,29 @@
 <template>
-  <DataView :value="props.session" data-key="id" paginator :rows="5">
+  <DataView :value="props.task" data-key="id" paginator :rows="5">
     <template #list="slotProps">
       <div>
         <div v-for="(item, index) in slotProps.items" :key="index" class="item-list">
           <section class="container-item-img">
-            <article class="container-img">
-              <img :src="item.image" :alt="item.name">
+            <article class="container-btn">
+              <Button icon="pi pi-check" aria-label="Filter" severity="success" variant="outlined"/>
             </article>
             <article class="container-name">
               <p>{{ item.name }}</p>
+              <p class="description">{{ item.description }}</p>
             </article>
           </section>
           <section class="container-info-tasks">
             <div class="info-tasks">
-              <p>Total de tarefas</p>
-              <p>{{ item.alltasks }}</p>
+              <p>Status</p>
+              <p>{{ item.status }}</p>
             </div>
             <div class="info-tasks">
-              <p>Tarefas finalizadas</p>
-              <p>{{ item.alltasksFinished }}</p>
+              <p>Prazo</p>
+              <p>{{ item.timePeriod }}</p>
+            </div>
+            <div class="info-tasks">
+              <p>Prioridade</p>
+              <p>{{ item.priority }}</p>
             </div>
             <div class="info-tasks">
               <BtnOptionItem />
@@ -31,19 +36,14 @@
 </template>
 
 <script setup lang="ts">
-import { DataView } from 'primevue';
+import { DataView, Button } from 'primevue';
 import BtnOptionItem from './BtnOptionItem.vue';
-import { type Session } from '@/interfaces/Session';
+import { type Task } from './../../interfaces/Task';
 
-
-const props = defineProps<{ session: Session[] }>();
+const props = defineProps<{ task: Task[] }>();
 </script>
 
 <style scoped>
-p {
-  text-align: center;
-}
-
 .item-list {
   display: flex;
   justify-content: space-between;
@@ -53,17 +53,17 @@ p {
 .container-item-img {
   display: flex;
   flex-direction: row;
+  align-items: center;
 }
 
-img {
-
-  height: 5.2rem;
-  width: 5.2rem;
+img, .container-btn {
+  width: 5.5rem;
   border-radius: 5px;
 }
 
-.container-img {
+.container-btn {
   display: flex;
+  align-items: center;
   justify-content: center;
 }
 
@@ -80,5 +80,10 @@ img {
 
 .info-tasks {
   margin: 0 15px;
+  text-align: center;
+}
+
+.description {
+  font-size: 0.6em;
 }
 </style>
