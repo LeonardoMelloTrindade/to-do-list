@@ -1,19 +1,8 @@
 <template>
   <main class="container-list">
-    <!-- <nav class="navigation" v-if="itensNavigation?.length !== 0">
-      <span v-for="item of itensNavigation" :key="item" class="itens-navigation">
-        {{ item }}
-      </span>
-    </nav>
-    <nav class="navigation" v-else>
-      <span class="itens-navigation">{{ itensNavigation[0] }}</span>
-    </nav>
-    <section class="list">
-    </section> -->
     <NavContainerList :itensNavigation="itensNavigation">
       <template #session>
-        <ListGroupItem  name="Faculdade" alltasks="10" alltasks-finished="5"/>
-        <ListGroupItem  name="Trabalho" alltasks="10" alltasks-finished="11"/>
+        <ListGroupItem  :session="session"/>
       </template>
       <template #allTasks>
         <div>Tasks</div>
@@ -30,6 +19,15 @@ import NavContainerList from './NavContainerList.vue';
 const { itensNavigation } = defineProps({
   itensNavigation: Array<string>,
 });
+
+const session = [
+  {id: 0, name: 'Faculdade', alltasks: '10', alltasksFinished: '10', image: '/src/assets/imagePillar.jpg'},
+  {id: 1, name: 'Trabalho', alltasks: '20', alltasksFinished: '13', image: '/src/assets/imagePillar.jpg'},
+  {id: 2, name: 'Trabalho', alltasks: '20', alltasksFinished: '13', image: '/src/assets/imagePillar.jpg'},
+  {id: 3, name: 'Trabalho', alltasks: '20', alltasksFinished: '13', image: '/src/assets/imagePillar.jpg'},
+  {id: 4, name: 'Trabalho', alltasks: '20', alltasksFinished: '13', image: '/src/assets/imagePillar.jpg'},
+  {id: 5, name: 'Trabalho', alltasks: '20', alltasksFinished: '13', image: '/src/assets/imagePillar.jpg'},
+];
 </script>
 
 <style scoped>
