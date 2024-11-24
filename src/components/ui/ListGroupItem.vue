@@ -34,14 +34,6 @@
 import { DataView } from 'primevue';
 import BtnOptionItem from './BtnOptionItem.vue';
 
-interface Session {
-  id: number,
-  name: string,
-  alltasks: string,
-  alltasksFinished: string,
-  image?: string
-}
-
 
 const props = defineProps<{ session: Session[] }>();
 </script>

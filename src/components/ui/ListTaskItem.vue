@@ -1,11 +1,11 @@
 <template>
-  <DataView :value="props.session" data-key="id" paginator :rows="5">
+  <DataView :value="props.task" data-key="id" paginator :rows="5">
     <template #list="slotProps">
       <div>
         <div v-for="(item, index) in slotProps.items" :key="index" class="item-list">
           <section class="container-item-img">
             <article class="container-img">
-              <Button />
+              <Button icon="pi pi-check" aria-label="Filter" />
             </article>
             <article class="container-name">
               <p>{{ item.name }}</p>
@@ -34,16 +34,7 @@
 import { DataView, Button } from 'primevue';
 import BtnOptionItem from './BtnOptionItem.vue';
 
-interface Session {
-  id: number,
-  name: string,
-  alltasks: string,
-  alltasksFinished: string,
-  image?: string
-}
-
-
-const props = defineProps<{ session: Session[] }>();
+const props = defineProps<{ task: Task[] }>();
 </script>
 
 <style scoped>

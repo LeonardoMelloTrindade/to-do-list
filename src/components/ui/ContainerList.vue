@@ -5,7 +5,7 @@
         <ListGroupItem  :session="session"/>
       </template>
       <template #allTasks>
-        <TaskItem />
+        <ListTaskItem :task="task"/>
       </template>
     </NavContainerList>
 
@@ -15,19 +15,27 @@
 <script setup lang="ts">
 import ListGroupItem from '@/components/ui/ListGroupItem.vue';
 import NavContainerList from './NavContainerList.vue';
-import TaskItem from './TaskItem.vue';
+import ListTaskItem from './ListTaskItem.vue';
+import Session from '../../interfaces/Session.ts';
+import Task from '../../interfaces/Task.ts';
 
 const { itensNavigation } = defineProps({
   itensNavigation: Array<string>,
 });
 
-const session = [
+const session: Session  = [
   {id: 0, name: 'Faculdade', alltasks: '10', alltasksFinished: '10', image: '/src/assets/imagePillar.jpg'},
   {id: 1, name: 'Trabalho', alltasks: '20', alltasksFinished: '13', image: '/src/assets/imagePillar.jpg'},
   {id: 2, name: 'Trabalho', alltasks: '20', alltasksFinished: '13', image: '/src/assets/imagePillar.jpg'},
   {id: 3, name: 'Trabalho', alltasks: '20', alltasksFinished: '13', image: '/src/assets/imagePillar.jpg'},
   {id: 4, name: 'Trabalho', alltasks: '20', alltasksFinished: '13', image: '/src/assets/imagePillar.jpg'},
   {id: 5, name: 'Trabalho', alltasks: '20', alltasksFinished: '13', image: '/src/assets/imagePillar.jpg'},
+];
+
+const task: Task = [
+  {id: 0, name: 'Fazer o L', timePeriod: '12/12/2024', status: 'A Fazer', priority: 1},
+  {id: 0, name: 'Fazer o L', timePeriod: '12/12/2024', status: 'A Fazer', priority: 1},
+  {id: 0, name: 'Fazer o L', timePeriod: '12/12/2024', status: 'A Fazer', priority: 1},
 ];
 </script>
 
