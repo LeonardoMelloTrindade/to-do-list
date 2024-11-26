@@ -4,6 +4,7 @@ import App from './App.vue';
 import router from './routes/routes';
 import PrimeVue from 'primevue/config';
 import Aura from '@primevue/themes/aura';
+import ToastService from 'primevue/toastservice';
 import 'primeicons/primeicons.css';
 
 
@@ -11,6 +12,7 @@ import 'primeicons/primeicons.css';
 const app = createApp(App);
 
 app.use(router);
+app.use(ToastService);
 app.use(PrimeVue, {
   theme: {
       preset: Aura,
