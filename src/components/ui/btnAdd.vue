@@ -1,37 +1,23 @@
 <template>
-  <Button @click="openPosition(position)" severity="secondary" icon="pi pi-plus" :label="`Criar ${label}`" raised />
-  <Dialog v-model:visible="visible" :header="`Criar ${label}`" :style="{ width: '25rem' }" position="top" :modal="true"
-    :draggable="false">
-    <div class="container-item">
-      <label for="item" class="font-semibold w-24">Nome: </label>
-      <InputText variant="filled" v-model="nameGroup" :placeholder="label" id="username" :value="nameGroup" :invalid="!nameGroup"/>
-    </div>
-    <div class="container-btn">
-      <Button type="button" label="Cancelar" severity="secondary" @click="visible = false"></Button>
-      <Button type="button" :disabled="!nameGroup" label="Salvar" @click="saveItem"></Button>
-    </div>
-  </Dialog>
+  <Button @click="openPosition" severity="secondary" icon="pi pi-plus" :label="`Criar ${label}`" raised />
+  <ModalCreate :label="label" :visible="visible" @update:visible="handleVisibleUpdate"/>
 </template>
 
 <script setup lang="ts">
-import { Button, Dialog, InputText } from 'primevue';
+import { Button } from 'primevue';
 import { ref } from 'vue';
+import ModalCreate from '@/components/ui/ModalCreate.vue';
 
-const position = ref('top');
-const nameGroup = ref('');
+const { label } = defineProps(['label']);
 const visible = ref(false);
 
-const openPosition = (pos: string) => {
-  position.value = pos;
+const openPosition = () => {
   visible.value = true;
 };
 
-const saveItem = () => {
-  visible.value = false;
-  nameGroup.value = '';
+const handleVisibleUpdate = (newValue: boolean) => {
+  visible.value = newValue;
 };
-
-const { label } = defineProps(['label']);
 </script>
 
 <style scoped>
