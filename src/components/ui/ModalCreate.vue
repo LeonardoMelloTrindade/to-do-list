@@ -3,11 +3,11 @@
     :draggable="false">
     <div class="container-item">
       <label for="item" class="font-semibold w-24">Nome: </label>
-      <InputText variant="filled" v-model="nameLabel" :placeholder="label" id="username" :value="nameLabel" :invalid="!nameLabel"/>
+      <InputText variant="filled" v-model="nameGroup" :placeholder="label" id="username" :value="nameGroup" :invalid="!nameGroup"/>
     </div>
     <div class="container-btn">
       <Button type="button" label="Cancelar" severity="secondary" @click="close"></Button>
-      <Button type="button" :disabled="!nameLabel" label="Salvar" @click="saveItem" />
+      <Button type="button" :disabled="!nameGroup" label="Salvar" @click="saveItem" />
     </div>
   </Dialog>
 </template>
@@ -24,7 +24,7 @@ const props = defineProps({
 const emit = defineEmits(['update:visible']);
 
 const localVisible = ref(props.visible);
-const nameLabel = ref(props.label);
+const nameGroup = ref('');
 
 watch(() => props.visible, (newValue) => {
   localVisible.value = newValue;
@@ -32,13 +32,14 @@ watch(() => props.visible, (newValue) => {
 
 const close = () => {
   emit('update:visible', false);
-  nameLabel.value = '';
+  nameGroup.value = '';
 };
 
 const saveItem = () => {
   emit('update:visible', false);
-  nameLabel.value = '';
+  nameGroup.value = '';
 };
+
 </script>
 
 <style scoped>
