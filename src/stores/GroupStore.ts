@@ -1,4 +1,4 @@
-import { type Session } from './../interfaces/Session';
+import { type Category } from '../interfaces/Category';
 import { type Task } from './../interfaces/Task';
 import { defineStore } from 'pinia';
 
@@ -9,7 +9,7 @@ export const useGroupStore = defineStore('task', {
         id: string,
         name: string,
         image?: string,
-        categories: Session[]
+        categories: Category[]
         tasks: Task[],
       }[],
     };

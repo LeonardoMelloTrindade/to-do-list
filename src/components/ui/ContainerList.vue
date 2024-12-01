@@ -16,7 +16,7 @@
 import ListGroupItem from '@/components/ui/ListGroupItem.vue';
 import NavContainerList from './NavContainerList.vue';
 import ListTaskItem from './ListTaskItem.vue';
-import { type Session } from '../../interfaces/Session';
+import { type Session } from '../../interfaces/Group';
 import { type Task } from '../../interfaces/Task';
 
 const { itensNavigation } = defineProps({
