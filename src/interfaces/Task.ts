@@ -1,6 +1,8 @@
 export interface Task {
   id: number,
   name: string,
+  groupId?: string,
+  categoryId?: string,
   description?: string,
   timePeriod: string,
   status: 'A Fazer' | 'Em Progresso' | 'Concluído',
