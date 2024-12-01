@@ -1,17 +1,10 @@
-import { type Category } from '../interfaces/Category';
-import { type Task } from './../interfaces/Task';
+import { type Group } from '../interfaces/Group';
 import { defineStore } from 'pinia';
 
-export const useGroupStore = defineStore('task', {
+export const useGroupStore = defineStore('group', {
   state: () => {
     return {
-      groups: [] as {
-        id: string,
-        name: string,
-        image?: string,
-        categories: Category[]
-        tasks: Task[],
-      }[],
+      groups: [] as Group[],
     };
   },
 });
