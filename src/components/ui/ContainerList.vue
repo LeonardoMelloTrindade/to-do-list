@@ -16,21 +16,16 @@
 import ListGroupItem from '@/components/ui/ListGroupItem.vue';
 import NavContainerList from './NavContainerList.vue';
 import ListTaskItem from './ListTaskItem.vue';
-import { type Session } from '../../interfaces/Group';
 import { type Task } from '../../interfaces/Task';
+import { useGroupStore } from '@/store/GroupStore';
+
+const store = useGroupStore();
 
 const { itensNavigation } = defineProps({
   itensNavigation: Array<string>,
 });
 
-const session: Session[]  = [
-  {id: 0, name: 'Faculdade', alltasks: '10', alltasksFinished: '10', image: '/src/assets/brasil.jpg'},
-  {id: 1, name: 'Trabalho', alltasks: '20', alltasksFinished: '13', image: '/src/assets/brasil.jpg'},
-  {id: 2, name: 'Trabalho', alltasks: '20', alltasksFinished: '13', image: '/src/assets/brasil.jpg'},
-  {id: 3, name: 'Trabalho', alltasks: '20', alltasksFinished: '13', image: '/src/assets/brasil.jpg'},
-  {id: 4, name: 'Trabalho', alltasks: '20', alltasksFinished: '13', image: '/src/assets/brasil.jpg'},
-  {id: 5, name: 'Trabalho', alltasks: '20', alltasksFinished: '13', image: '/src/assets/brasil.jpg'},
-];
+const session = store.groups;
 
 const task: Task[] = [
   {id: 0, name: 'Fazer o L',  description: 'Teste Teste Teste Teste Teste ', timePeriod: '12/12/2024', status: 'A Fazer', priority: 1},
