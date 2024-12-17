@@ -1,7 +1,7 @@
 import { type Task } from './Task';
 
 export interface Category {
-  id: number,
+  id: string,
   name: string,
   image?: string,
   groupId: number,

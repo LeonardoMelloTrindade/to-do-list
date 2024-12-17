@@ -2,6 +2,7 @@ import { type Task } from './../interfaces/Task';
 import { type Category } from './../interfaces/Category';
 import { type Group } from '../interfaces/Group';
 import { defineStore } from 'pinia';
+import { faker } from '@faker-js/faker';
 
 export const useGroupStore = defineStore('group', {
   state: () => {
@@ -12,9 +13,9 @@ export const useGroupStore = defineStore('group', {
   actions: {
     createGroup(name: string, image?: string) {
       const group: Group = {
-        id: 323,
+        id: faker.string.ulid(),
         name: name,
-        image: image,
+        image: image || '',
         alltasks: '0',
         alltasksFinished: '0',
         categories: [] as Category[],

@@ -3,18 +3,23 @@
     :draggable="false">
     <div class="container-item">
       <label for="item" class="font-semibold w-24">Nome: </label>
-      <InputText variant="filled" v-model="nameGroup" :placeholder="label" id="username" :value="nameGroup" :invalid="!nameGroup"/>
+      <InputText variant="filled" v-model="inputName" :placeholder="label" id="username" :value="inputName" :invalid="!inputName"/>
     </div>
     <div class="container-btn">
       <Button type="button" label="Cancelar" severity="secondary" @click="close"></Button>
-      <Button type="button" :disabled="!nameGroup" label="Salvar" @click="saveItem" />
+      <Button type="button" :disabled="!inputName" label="Salvar" @click="saveItem" />
     </div>
   </Dialog>
 </template>
 
 <script setup lang="ts">
+// import { useCategoryStore } from '@/store/CategoryStore';
+import { useGroupStore } from '@/store/GroupStore';
 import { Dialog, InputText, Button } from 'primevue';
 import { ref, watch } from 'vue';
+
+// const categoryStore = useCategoryStore();
+const groupStore = useGroupStore();
 
 const props = defineProps({
   visible: Boolean,
@@ -24,7 +29,7 @@ const props = defineProps({
 const emit = defineEmits(['update:visible']);
 
 const localVisible = ref(props.visible);
-const nameGroup = ref('');
+const inputName = ref('');
 
 watch(() => props.visible, (newValue) => {
   localVisible.value = newValue;
@@ -32,12 +37,17 @@ watch(() => props.visible, (newValue) => {
 
 const close = () => {
   emit('update:visible', false);
-  nameGroup.value = '';
+  inputName.value = '';
 };
 
 const saveItem = () => {
   emit('update:visible', false);
-  nameGroup.value = '';
+  if(props.label === 'Criar Grupo') {
+    groupStore.createGroup(inputName.value);
+  } else {
+    // logica de cima para categoria
+  }
+  inputName.value = '';
 };
 
 </script>
