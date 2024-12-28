@@ -1,5 +1,6 @@
 <template>
-  <Button @click="openPosition" severity="secondary" icon="pi pi-plus" :label="`Criar ${label}`" raised />
+  <Button v-if="actionTab.isActiveTask" @click="openPosition" severity="secondary" icon="pi pi-plus" :label="`Criar ${label}`" raised />
+  <Button v-else @click="openPosition" severity="secondary" icon="pi pi-plus" label="Criar Tarefa" raised />
   <ModalCreateSession :label="label" :visible="visible" @update:visible="handleVisibleUpdate"/>
 </template>
 
@@ -7,9 +8,12 @@
 import { Button } from 'primevue';
 import { ref } from 'vue';
 import ModalCreateSession from '@/components/ui/ModalCreateSession.vue';
+import { useActionNavigation } from '@/store/ActionNavigationStore';
 
 const { label } = defineProps(['label']);
 const visible = ref(false);
+
+const actionTab = useActionNavigation();
 
 const openPosition = () => {
   visible.value = true;

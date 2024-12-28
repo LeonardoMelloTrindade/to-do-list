@@ -9,7 +9,7 @@
           <BtnAdd label="Grupo"/>
         </template>
         <template #list>
-          <ContainerList :itensNavigation="['Grupos', 'Geral']"/>
+          <ContainerList tab="Grupos"/>
         </template>
       </CenterContent>
     </template>
