@@ -33,7 +33,7 @@
 <script setup lang="ts">
 import { DataView } from 'primevue';
 import BtnOptionItem from './BtnOptionItem.vue';
-import { type Session } from '@/interfaces/Group';
+import { type Group as Session } from '@/interfaces/Group';
 
 
 const props = defineProps<{ session: Session[] }>();

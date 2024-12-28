@@ -42,7 +42,7 @@ const close = () => {
 
 const saveItem = () => {
   emit('update:visible', false);
-  if(props.label === 'Criar Grupo') {
+  if(props.label === 'Grupo') {
     groupStore.createGroup(inputName.value);
   } else {
     // logica de cima para categoria

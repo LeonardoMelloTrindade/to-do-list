@@ -10,7 +10,7 @@ export const useTaskStore = defineStore('tasks', {
     };
   },
   actions: {
-    createTask(name: string, priority:  1 | 2 | 3 | 4 | 5, description?: string) {
+    createTask(name: string, priority:  Task['priority'], description?: string) {
       const task: Task = {
         id: faker.string.ulid(),
         name: name,
