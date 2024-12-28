@@ -2,7 +2,8 @@
     <Tabs value="0">
       <TabList>
         <div class="navigation">
-          <Tab :value="index.toString()" v-for="item, index of itensNavigation" :key="item">{{ item }}</Tab>
+          <Tab value="0" v-on="0" @click="actionTab.onClickTabSession()">{{ tab }}</Tab>
+          <Tab value="1" v-on="1" @click="actionTab.onClickTabTask()">Tarefas</Tab>
         </div>
       </TabList>
       <TabPanels class="list">
@@ -17,12 +18,12 @@
 </template>
 
 <script setup lang="ts">
+import { useActionNavigation } from '@/store/ActionNavigationStore';
 import { Tabs, Tab, TabList, TabPanel, TabPanels } from 'primevue';
 
+const { tab } = defineProps(['tab']);
+const actionTab = useActionNavigation();
 
-const { itensNavigation } = defineProps({
-  itensNavigation: Array<string>,
-});
 </script>
 
 <style scoped>

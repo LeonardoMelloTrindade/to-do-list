@@ -1,6 +1,6 @@
 <template>
   <main class="container-list">
-    <NavContainerList :itensNavigation="itensNavigation">
+    <NavContainerList :tab="tab">
       <template #session>
         <ListGroupItem  :session="session"/>
       </template>
@@ -21,9 +21,7 @@ import { useGroupStore } from '@/store/GroupStore';
 
 const store = useGroupStore();
 
-const { itensNavigation } = defineProps({
-  itensNavigation: Array<string>,
-});
+const { tab } = defineProps(['tab']);
 
 const session = store.groups;
 
