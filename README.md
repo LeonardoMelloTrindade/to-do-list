@@ -31,6 +31,7 @@ O projeto também utiliza bibliotecas externas para complementar suas funcionali
 * eslint-plugin-vue - Plugin ESLint com regras específicas para Vue.
 * husky - Ferramenta para criação de hooks de Git, útil para automatizar verificações de código antes dos commits.
 * primevue - Ferramenta de estlização visando uma interface mais padronizada
+* pinia - Gerenciador de estado global
 
 ### 🔧 Instalação
 

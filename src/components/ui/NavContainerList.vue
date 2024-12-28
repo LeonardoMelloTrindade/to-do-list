@@ -6,7 +6,7 @@
         </div>
       </TabList>
       <TabPanels class="list">
-        <TabPanel value="0">
+        <TabPanel value="0" >
           <slot name="session"></slot>
         </TabPanel>
         <TabPanel value="1">

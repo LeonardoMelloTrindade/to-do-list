@@ -1,12 +1,12 @@
 <template>
   <Button @click="openPosition" severity="secondary" icon="pi pi-plus" :label="`Criar ${label}`" raised />
-  <ModalCreate :label="label" :visible="visible" @update:visible="handleVisibleUpdate"/>
+  <ModalCreateSession :label="label" :visible="visible" @update:visible="handleVisibleUpdate"/>
 </template>
 
 <script setup lang="ts">
 import { Button } from 'primevue';
 import { ref } from 'vue';
-import ModalCreate from '@/components/ui/ModalCreate.vue';
+import ModalCreateSession from '@/components/ui/ModalCreateSession.vue';
 
 const { label } = defineProps(['label']);
 const visible = ref(false);
