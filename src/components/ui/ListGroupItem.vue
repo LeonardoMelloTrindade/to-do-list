@@ -21,7 +21,7 @@
               <p>{{ item.alltasksFinished }}</p>
             </div>
             <div class="info-tasks">
-              <BtnOptionItem />
+              <BtnManage :id="item.id" message="Você tem certeza que deseja deletar o grupo" :name="item.name" type="group"/>
             </div>
           </section>
         </div>
@@ -32,7 +32,7 @@
 
 <script setup lang="ts">
 import { DataView } from 'primevue';
-import BtnOptionItem from './BtnOptionItem.vue';
+import BtnManage from './BtnManage.vue';
 import { type Group as Session } from '@/interfaces/Group';
 
 

@@ -2,8 +2,8 @@
     <Tabs value="0">
       <TabList>
         <div class="navigation">
-          <Tab value="0" v-on="0" @click="actionTab.onClickTabSession()">{{ tab }}</Tab>
-          <Tab value="1" v-on="1" @click="actionTab.onClickTabTask()">Tarefas</Tab>
+          <Tab value="0" @click="actionTab.onClickTabSession()">{{ tab }}</Tab>
+          <Tab value="1" @click="actionTab.onClickTabTask()">Tarefas</Tab>
         </div>
       </TabList>
       <TabPanels class="list">

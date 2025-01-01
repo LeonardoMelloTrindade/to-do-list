@@ -5,7 +5,7 @@
         <ListGroupItem  :session="session"/>
       </template>
       <template #allTasks>
-        <ListTaskItem :task="task"/>
+        <ListTaskItem :task="tasks"/>
       </template>
     </NavContainerList>
 
@@ -16,23 +16,16 @@
 import ListGroupItem from '@/components/ui/ListGroupItem.vue';
 import NavContainerList from './NavContainerList.vue';
 import ListTaskItem from './ListTaskItem.vue';
-import { type Task } from '../../interfaces/Task';
 import { useGroupStore } from '@/store/GroupStore';
+import { useTaskStore } from '@/store/TasksStore';
 
-const store = useGroupStore();
+const storeTasks = useTaskStore();
+const storeGroups = useGroupStore();
 
 const { tab } = defineProps(['tab']);
 
-const session = store.groups;
-
-const task: Task[] = [
-  {id: 0, name: 'Fazer o L',  description: 'Teste Teste Teste Teste Teste ', timePeriod: '12/12/2024', status: 'A Fazer', priority: 1},
-  {id: 0, name: 'Fazer o L', timePeriod: '12/12/2024', status: 'A Fazer', priority: 1},
-  {id: 0, name: 'Fazer o L', timePeriod: '12/12/2024', status: 'A Fazer', priority: 1},
-  {id: 0, name: 'Fazer o L', timePeriod: '12/12/2024', status: 'A Fazer', priority: 1},
-  {id: 0, name: 'Fazer o L',  description: 'Teste Teste Teste Teste Teste ', timePeriod: '12/12/2024', status: 'A Fazer', priority: 1},
-  {id: 0, name: 'Fazer o L',  description: 'Teste Teste Teste Teste Teste ', timePeriod: '12/12/2024', status: 'A Fazer', priority: 1},
-];
+const session = storeGroups.groups;
+const tasks = storeTasks.tasks;
 </script>
 
 <style scoped>

@@ -1,0 +1,1 @@
+export type Ativities = 'group' | 'category' | 'task';
