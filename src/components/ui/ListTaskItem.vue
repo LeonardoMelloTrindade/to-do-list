@@ -26,7 +26,7 @@
               <p>{{ item.priority }}</p>
             </div>
             <div class="info-tasks">
-              <BtnOptionItem />
+              <BtnManage :id="item.id" message="Você tem certeza que deseja deletar a tarefa" :name="item.name" type="task"/>
             </div>
           </section>
         </div>
@@ -37,7 +37,7 @@
 
 <script setup lang="ts">
 import { DataView, Button } from 'primevue';
-import BtnOptionItem from './BtnOptionItem.vue';
+import BtnManage from './BtnManage.vue';
 import { type Task } from './../../interfaces/Task';
 
 const props = defineProps<{ task: Task[] }>();

@@ -23,5 +23,12 @@ export const useTaskStore = defineStore('tasks', {
       };
       this.tasks.push(task);
     },
+
+    deleteTasks(id: string) {
+      const index = this.tasks.findIndex(task => task.id === id);
+      if (index !== -1) {
+        this.tasks.splice(index, 1);
+      }
+    },
   },
 });

@@ -23,5 +23,13 @@ export const useGroupStore = defineStore('group', {
       };
       this.groups.push(group);
     },
+
+    deleteGroup(id: string) {
+      const index = this.groups.findIndex(group => group.id === id);
+      if (index !== -1) {
+        this.groups.splice(index, 1);
+      }
+    },
   },
+
 });

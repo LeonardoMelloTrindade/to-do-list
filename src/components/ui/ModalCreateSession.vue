@@ -15,11 +15,13 @@
 <script setup lang="ts">
 // import { useCategoryStore } from '@/store/CategoryStore';
 import { useGroupStore } from '@/store/GroupStore';
+import { useTaskStore } from '@/store/TasksStore';
 import { Dialog, InputText, Button } from 'primevue';
 import { ref, watch } from 'vue';
 
 // const categoryStore = useCategoryStore();
-const groupStore = useGroupStore();
+const storeGroups = useGroupStore();
+const storeTasks = useTaskStore();
 
 const props = defineProps({
   visible: Boolean,
@@ -42,10 +44,15 @@ const close = () => {
 
 const saveItem = () => {
   emit('update:visible', false);
-  if(props.label === 'Grupo') {
-    groupStore.createGroup(inputName.value);
-  } else {
-    // logica de cima para categoria
+  switch(props.label) {
+    case 'Grupo':
+      storeGroups.createGroup(inputName.value);
+      break;
+    case 'Tarefa':
+      storeTasks.createTask(inputName.value, 1);
+      break;
+    default:
+    throw new Error('Palavra chave errada');
   }
   inputName.value = '';
 };

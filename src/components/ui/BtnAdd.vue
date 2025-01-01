@@ -1,7 +1,7 @@
 <template>
   <Button v-if="actionTab.isActiveTask" @click="openPosition" severity="secondary" icon="pi pi-plus" :label="`Criar ${label}`" raised />
   <Button v-else @click="openPosition" severity="secondary" icon="pi pi-plus" label="Criar Tarefa" raised />
-  <ModalCreateSession :label="label" :visible="visible" @update:visible="handleVisibleUpdate"/>
+  <ModalCreateSession :label="actionTab.isActiveTask ? label : 'Tarefa'" :visible="visible" @update:visible="handleVisibleUpdate"/>
 </template>
 
 <script setup lang="ts">
@@ -12,7 +12,6 @@ import { useActionNavigation } from '@/store/ActionNavigationStore';
 
 const { label } = defineProps(['label']);
 const visible = ref(false);
-
 const actionTab = useActionNavigation();
 
 const openPosition = () => {
