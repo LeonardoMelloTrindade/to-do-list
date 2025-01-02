@@ -3,6 +3,9 @@
     <template #main>
       <CenterContent>
         <template #title>
+          <div class="breadcrumb">
+            <Breadcrumb />
+          </div>
           <TitleHeader title="Grupos de tarefas" />
         </template>
         <template #button>
@@ -22,4 +25,13 @@ import ContainerList from '@/components/ui/ContainerList.vue';
 import ContainerMain from '@/components/container/ContainerMain.vue';
 import CenterContent from '@/components/layout/CenterContent.vue';
 import BtnAdd from '@/components/ui/BtnAdd.vue';
+import Breadcrumb from '@/components/ui/BreadCrumb.vue';
 </script>
+
+<style scoped>
+  .breadcrumb {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+  }
+</style>
