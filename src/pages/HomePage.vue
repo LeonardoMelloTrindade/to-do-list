@@ -25,7 +25,7 @@ import ContainerList from '@/components/ui/ContainerList.vue';
 import ContainerMain from '@/components/container/ContainerMain.vue';
 import CenterContent from '@/components/layout/CenterContent.vue';
 import BtnAdd from '@/components/ui/BtnAdd.vue';
-import Breadcrumb from '@/components/ui/Breadcrumb.vue';
+import Breadcrumb from '@/components/ui/BreadCrumb.vue';
 </script>
 
 <style scoped>

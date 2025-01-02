@@ -1,4 +1,3 @@
-<!-- eslint-disable vue/multi-word-component-names -->
 <template>
     <div>
         <Breadcrumb class="breadcrumb-background" :home="home" :model="items">
