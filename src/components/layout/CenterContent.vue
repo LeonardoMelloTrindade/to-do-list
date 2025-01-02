@@ -13,6 +13,13 @@
 </template>
 
 <style scoped>
+header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
 main {
   display: flex;
   flex-direction: column;

@@ -21,6 +21,7 @@ export default [
       'comma-dangle': ['error', 'always-multiline'],
       'key-spacing': ['error', { 'beforeColon': false, 'afterColon': true }],
       'space-infix-ops': 'error',
+      'vue/multi-word-component-names': 'off',
     },
   },
   ...pluginVue.configs['flat/essential'],
