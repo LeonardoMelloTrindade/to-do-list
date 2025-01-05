@@ -13,15 +13,17 @@
 </template>
 
 <script setup lang="ts">
-// import { useCategoryStore } from '@/store/CategoryStore';
+import { useCategoryStore } from '@/store/CategoryStore';
 import { useGroupStore } from '@/store/GroupStore';
 import { useTaskStore } from '@/store/TasksStore';
 import { Dialog, InputText, Button } from 'primevue';
 import { ref, watch } from 'vue';
+import { useRoute } from 'vue-router';
 
-// const categoryStore = useCategoryStore();
+const storeCategories = useCategoryStore();
 const storeGroups = useGroupStore();
 const storeTasks = useTaskStore();
+const route = useRoute();
 
 const props = defineProps({
   visible: Boolean,
@@ -48,11 +50,15 @@ const saveItem = () => {
     case 'Grupo':
       storeGroups.createGroup(inputName.value);
       break;
+    case 'Categoria':
+      storeCategories.createCategory(inputName.value, route.params.id);
+      storeGroups.createCategoryForGroup(inputName.value, route.params.id);
+      break;
     case 'Tarefa':
       storeTasks.createTask(inputName.value, 1);
       break;
     default:
-    throw new Error('Palavra chave errada');
+    throw new Error(`Palavra chave errada: ${props.label}`);
   }
   inputName.value = '';
 };

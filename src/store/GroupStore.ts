@@ -24,12 +24,36 @@ export const useGroupStore = defineStore('group', {
       this.groups.push(group);
     },
 
+    createCategoryForGroup(name: string, groupId: string | string[], image?: string) {
+      const category: Category = {
+        id: faker.string.ulid(), 
+        name: name,
+        image: image || '', 
+        groupId: groupId,
+        alltasks: '0', 
+        alltasksFinished: '0', 
+        tasks: [] as Task[], 
+      };
+    
+      const group = this.groups.find(group => group.id === groupId);
+      if (group) {
+        group.categories.push(category); // Adiciona a nova categoria no array de categorias do grupo
+    
+      // Atualizando a lista de grupos
+      this.groups = this.groups.map(group => 
+        group.id === groupId ? { ...group, categories: [...group.categories, category] } : group);
+        } else {
+          throw new Error('Group not found');
+      }
+    },
+
     deleteGroup(id: string) {
       const index = this.groups.findIndex(group => group.id === id);
       if (index !== -1) {
         this.groups.splice(index, 1);
       }
     },
+
     findGroupById(id: string | string[]) {
       const group = this.groups.find(group => group.id === id);
       return group;
