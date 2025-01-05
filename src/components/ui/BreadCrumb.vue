@@ -21,15 +21,13 @@ import { ref } from 'vue';
 import Breadcrumb from 'primevue/breadcrumb';
 
 const { groupId, categoryId } = defineProps(['groupId', 'categoryId']);
-
-
 const home = ref({
     icon: 'pi pi-home',
     route: '/',
 });
 const items = ref([
-    { label: `Grupo#${groupId}`, route: `/group/${groupId}`},
-    { label: `Categoria${categoryId}`, route: `/category/${categoryId}`},
+    { label: `Grupo #${groupId}`, route: `/group/${groupId}`},
+    { label: `Categoria ${categoryId}`, route: `/category/${categoryId}`},
 ]);
 </script>
 

@@ -9,7 +9,7 @@
           <BtnAdd label="Grupo"/>
         </template>
         <template #list>
-          <ContainerList tab="Grupos"/>
+          <ContainerList tab="Grupos" :group="groupStore.groups" :tasks="tasksStore.tasks"/>
         </template>
       </CenterContent>
     </template>
@@ -22,4 +22,9 @@ import ContainerList from '@/components/ui/ContainerList.vue';
 import ContainerMain from '@/components/container/ContainerMain.vue';
 import CenterContent from '@/components/layout/CenterContent.vue';
 import BtnAdd from '@/components/ui/BtnAdd.vue';
+import { useGroupStore } from '@/store/GroupStore';
+import { useTaskStore } from '@/store/TasksStore';
+
+const tasksStore = useTaskStore();
+const groupStore = useGroupStore();
 </script>

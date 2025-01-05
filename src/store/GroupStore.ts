@@ -30,6 +30,10 @@ export const useGroupStore = defineStore('group', {
         this.groups.splice(index, 1);
       }
     },
+    findGroupById(id: string | string[]) {
+      const group = this.groups.find(group => group.id === id);
+      return group;
+    },
   },
 
 });

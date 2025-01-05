@@ -3,14 +3,16 @@
     <template #list="slotProps">
       <div>
         <div v-for="(item, index) in slotProps.items" :key="index" class="item-list">
-          <section class="container-item-img">
-            <article class="container-img">
-              <img :src="item.image" :alt="item.name">
-            </article>
-            <article class="container-name">
-              <p>{{ item.name }}</p>
-            </article>
-          </section>
+          <router-link class="group-link" :to="`/group/${item.id}`">
+            <section class="container-item-img">
+              <article class="container-img">
+                <img :src="item.image" :alt="item.name">
+              </article>
+              <article class="container-name">
+                <p>{{ item.name }}</p>
+              </article>
+            </section>
+          </router-link>
           <section class="container-info-tasks">
             <div class="info-tasks">
               <p>Total de tarefas</p>
@@ -33,10 +35,11 @@
 <script setup lang="ts">
 import { DataView } from 'primevue';
 import BtnManage from './BtnManage.vue';
-import { type Group as Session } from '@/interfaces/Group';
+import { type Group } from '@/interfaces/Group';
+import { type Category } from '@/interfaces/Category';
 
 
-const props = defineProps<{ session: Session[] }>();
+const props = defineProps<{ session: Group[] | Category[] }>();
 </script>
 
 <style scoped>
@@ -71,6 +74,11 @@ img {
   margin-left: 5px;
 }
 
+.container-name:hover {
+  transition: 0.7s;
+  color: aqua;
+}
+
 .container-info-tasks {
   display: flex;
   flex-direction: row;
@@ -80,5 +88,10 @@ img {
 
 .info-tasks {
   margin: 0 15px;
+}
+
+.group-link {
+  text-decoration: none;
+  color: azure;
 }
 </style>

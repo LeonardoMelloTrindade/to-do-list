@@ -1,4 +1,4 @@
-import ContainerList from '@/components/ui/ContainerList.vue';
+import GroupPage from '@/pages/GroupPage.vue';
 import HomePage from '@/pages/HomePage.vue';
 import { createRouter, createWebHistory } from 'vue-router';
 
@@ -14,7 +14,7 @@ const router = createRouter({
     {
       path: '/group/:id',
       name: 'group',
-      component: ContainerList,
+      component: GroupPage,
     },
   ],
 });

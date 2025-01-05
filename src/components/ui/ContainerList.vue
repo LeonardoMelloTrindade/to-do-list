@@ -2,7 +2,7 @@
   <main class="container-list">
     <NavContainerList :tab="tab">
       <template #session>
-        <ListGroupItem  :session="session"/>
+        <ListGroupItem  :session="group || category"/>
       </template>
       <template #allTasks>
         <ListTaskItem :task="tasks"/>
@@ -13,19 +13,32 @@
 </template>
 
 <script setup lang="ts">
+import type { PropType } from 'vue';
 import ListGroupItem from '@/components/ui/ListGroupItem.vue';
 import NavContainerList from './NavContainerList.vue';
 import ListTaskItem from './ListTaskItem.vue';
-import { useGroupStore } from '@/store/GroupStore';
-import { useTaskStore } from '@/store/TasksStore';
+import { type Group } from '@/interfaces/Group';
+import { type Category } from '@/interfaces/Category';
+import { type Task } from '@/interfaces/Task';
 
-const storeTasks = useTaskStore();
-const storeGroups = useGroupStore();
-
-const { tab } = defineProps(['tab']);
-
-const session = storeGroups.groups;
-const tasks = storeTasks.tasks;
+const {tab, group, category } = defineProps({
+  tab: {
+    type: String,
+    required: true,
+  },
+  group: {
+    type: Object as PropType<Group[]>,
+    // eslint-disable-next-line vue/require-valid-default-prop
+    default: () => [],
+  },
+  category: {
+    type: Object as PropType<Category[]>,
+  },
+  tasks: {
+    type: Object as PropType<Task[]>,
+    required: true,
+  },
+});
 </script>
 
 <style scoped>
