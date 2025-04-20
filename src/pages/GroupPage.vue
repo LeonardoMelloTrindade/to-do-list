@@ -12,16 +12,11 @@
           <BtnAdd label="Categoria"/>
         </template>
         <template #list>
-          <div v-if="groupFound">
             <ContainerList
               tab="Categorias"
-              :category="groupFound.categories"
-              :tasks="groupFound.tasks"
+              :category="categories"
+              :tasks="groupFound?.tasks"
             />
-          </div>
-          <div v-else>
-            <p>Grupo não acessível...</p>
-          </div>
         </template>
       </CenterContent>
     </template>
@@ -29,29 +24,35 @@
 </template>
 
 <script setup lang="ts">
+import { computed, onBeforeMount, ref } from 'vue';
+import { useRoute } from 'vue-router';
+
+import { type PathBreadcrumb } from '@/interfaces/PathBreadcrumb';
+import { type Group } from '@/interfaces/Group';
+import { useGroupStore } from '@/store/GroupStore';
+
 import TitleHeader from '@/components/ui/TitleHeader.vue';
 import ContainerList from '@/components/ui/ContainerList.vue';
 import ContainerMain from '@/components/container/ContainerMain.vue';
 import CenterContent from '@/components/layout/CenterContent.vue';
 import BtnAdd from '@/components/ui/BtnAdd.vue';
 import Breadcrumb from '@/components/ui/BreadCrumb.vue';
-import { onBeforeMount, ref } from 'vue';
-import { useGroupStore } from '@/store/GroupStore';
-import { useRoute } from 'vue-router';
-import { type Group } from '@/interfaces/Group';
-import { type PathBreadcrumb } from '@/interfaces/PathBreadcrumb';
 
 const route = useRoute();
 const group = useGroupStore();
 const groupFound = ref<Group>();
-const path = ref<PathBreadcrumb | undefined>(undefined);
+const path = ref<PathBreadcrumb>();
 
 onBeforeMount(() => {
-  groupFound.value = group.findGroupById(route.params.id)!;
+  groupFound.value = group.findGroupById(route.params.id);
   if (!groupFound.value) {
     throw new Error(`Group with ID ${route.params.id} not found`);
   }
-  path.value = { label: groupFound.value?.name, route: `/group/${groupFound.value?.id}` };
+  path.value = { label: groupFound.value.name, route: `/group/${groupFound.value.id}` };
+});
+
+const categories = computed(() => {
+  return groupFound.value?.categories;
 });
 </script>
 

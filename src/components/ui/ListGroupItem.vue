@@ -1,45 +1,69 @@
 <template>
-  <DataView :value="props.session" data-key="id" paginator :rows="5">
-    <template #list="slotProps">
-      <div>
-        <div v-for="(item, index) in slotProps.items" :key="index" class="item-list">
-          <router-link class="group-link" :to="`/group/${item.id}`">
-            <section class="container-item-img">
-              <article class="container-img">
-                <img :src="item.image" :alt="item.name">
+  <div v-if='session?.length'>
+    <DataView :value='session' data-key='id' paginator :rows='5'>
+      <template #list='slotProps'>
+        <div
+          v-for='(item, index) in slotProps.items'
+          :key='index'
+          class='item-list'
+        >
+          <router-link class='group-link' :to='`/group/${item.id}`'>
+            <section class='container-item-img'>
+              <article class='container-img'>
+                <img :src='item.image' :alt='item.name' />
               </article>
-              <article class="container-name">
+              <article class='container-name'>
                 <p>{{ item.name }}</p>
               </article>
             </section>
           </router-link>
-          <section class="container-info-tasks">
-            <div class="info-tasks">
+          <section class='container-info-tasks'>
+            <div class='info-tasks'>
               <p>Total de tarefas</p>
               <p>{{ item.alltasks }}</p>
             </div>
-            <div class="info-tasks">
+            <div class='info-tasks'>
               <p>Tarefas finalizadas</p>
               <p>{{ item.alltasksFinished }}</p>
             </div>
-            <div class="info-tasks">
-              <BtnManage :id="item.id" message="Você tem certeza que deseja deletar o grupo" :name="item.name" type="group"/>
+            <div class='info-tasks'>
+              <BtnManage
+                :id='item.id'
+                message='Você tem certeza que deseja deletar o grupo'
+                :name='item.name'
+                type='group'
+              />
             </div>
           </section>
         </div>
-      </div>
-    </template>
-  </DataView>
+      </template>
+    </DataView>
+  </div>
+  <div v-else>
+    <p>{{ `Não há ${type} cadastrad${type === 'categorias' ? 'a' : 'o'}s...` }}</p>
+  </div>
 </template>
 
-<script setup lang="ts">
+<script setup lang='ts'>
 import { DataView } from 'primevue';
 import BtnManage from './BtnManage.vue';
 import { type Group } from '@/interfaces/Group';
 import { type Category } from '@/interfaces/Category';
+import { computed, onBeforeMount, ref } from 'vue';
 
+const { category, group } = defineProps<{
+  category?: Category[];
+  group?: Group[];
+}>();
+const type = ref('');
 
-const props = defineProps<{ session: Group[] | Category[] }>();
+const session = computed(() => {
+  return category || group;
+});
+
+onBeforeMount(() => {
+  type.value = category ? 'categorias' : 'grupos';
+});
 </script>
 
 <style scoped>
@@ -59,7 +83,6 @@ p {
 }
 
 img {
-
   height: 5.2rem;
   width: 5.2rem;
   border-radius: 5px;

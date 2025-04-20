@@ -4,7 +4,7 @@ export interface Category {
   id: string,
   name: string,
   image?: string,
-  groupId: string | string[],
+  groupId: string,
   alltasks: string,
   alltasksFinished: string,
   tasks: Task[],

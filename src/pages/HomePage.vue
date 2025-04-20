@@ -1,7 +1,7 @@
 <template>
   <ContainerMain>
     <template #main>
-      <CenterContent>
+      <CenterContent class="table">
         <template #title>
           <TitleHeader title="Grupos de tarefas" />
         </template>
@@ -9,7 +9,7 @@
           <BtnAdd label="Grupo"/>
         </template>
         <template #list>
-          <ContainerList tab="Grupos" :group="groupStore.groups" :tasks="tasksStore.tasks"/>
+          <ContainerList tab="Grupos" :group="groups" :tasks="tasks"/>
         </template>
       </CenterContent>
     </template>
@@ -25,6 +25,6 @@ import BtnAdd from '@/components/ui/BtnAdd.vue';
 import { useGroupStore } from '@/store/GroupStore';
 import { useTaskStore } from '@/store/TasksStore';
 
-const tasksStore = useTaskStore();
-const groupStore = useGroupStore();
+const { tasks } = useTaskStore();
+const { groups } = useGroupStore();
 </script>

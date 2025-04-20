@@ -2,7 +2,7 @@
   <main class="container-list">
     <NavContainerList :tab="tab">
       <template #session>
-        <ListGroupItem  :session="group || category"/>
+        <ListGroupItem  :category="category" :group="group"/>
       </template>
       <template #allTasks>
         <ListTaskItem :task="tasks"/>
@@ -13,7 +13,7 @@
 </template>
 
 <script setup lang="ts">
-import type { PropType } from 'vue';
+import {  type PropType } from 'vue';
 import ListGroupItem from '@/components/ui/ListGroupItem.vue';
 import NavContainerList from './NavContainerList.vue';
 import ListTaskItem from './ListTaskItem.vue';
