@@ -29,7 +29,6 @@ main {
 
 .container-lists {
   margin-top: 3em;
-  min-width: 12rem;
 }
 
 </style>
