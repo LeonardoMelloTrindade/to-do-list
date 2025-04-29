@@ -28,8 +28,6 @@ const {tab, group, category } = defineProps({
   },
   group: {
     type: Object as PropType<Group[]>,
-    // eslint-disable-next-line vue/require-valid-default-prop
-    default: () => [],
   },
   category: {
     type: Object as PropType<Category[]>,
