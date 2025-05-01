@@ -1,14 +1,16 @@
 import { describe, expect, it } from 'vitest';
 import { customMount } from '@/tests/utils/index';
 import ContainerList from './ContainerList.vue';
+import { mockTasks, mockCategories, mockGroups } from '@/tests/mocks';
 
 describe('ContainerList.vue', () => {
   it('should render ContainerList with prop Categories', () => {
+
     const wrapper = customMount(ContainerList, {
       props: {
         tab: 'Categorias',
-        tasks: [],
-        category: [],
+        tasks: mockTasks,
+        category: mockCategories,
       },
   
     });
@@ -19,8 +21,8 @@ describe('ContainerList.vue', () => {
     const wrapper = customMount(ContainerList, {
       props: {
         tab: 'Grupos',
-        tasks: [],
-        group: [],
+        tasks: mockTasks,
+        group: mockGroups,
       },
   
     });
