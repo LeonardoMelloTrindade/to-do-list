@@ -32,7 +32,7 @@ const handleVisibleUpdate = (newValue: boolean) => {
 
 .container-item {
   margin-bottom: 2rem;
-}
+} 
 
 button {
   margin: 0 5px;

@@ -6,7 +6,7 @@
           <TitleHeader title="Grupos de tarefas" />
         </template>
         <template #button>
-          <BtnAdd label="Grupo"/>
+          <ModalTriggerCreate label="Grupo"/>
         </template>
         <template #list>
           <ContainerList tab="Grupos" :group="groups" :tasks="tasks"/>
@@ -21,7 +21,7 @@ import TitleHeader from '@/components/ui/TitleHeader.vue';
 import ContainerList from '@/components/ui/ContainerList.vue';
 import ContainerMain from '@/components/container/ContainerMain.vue';
 import CenterContent from '@/components/layout/CenterContent.vue';
-import BtnAdd from '@/components/ui/BtnAdd.vue';
+import ModalTriggerCreate from '@/components/ui/ModalTriggerCreate.vue';
 import { useGroupStore } from '@/store/GroupStore';
 import { useTaskStore } from '@/store/TasksStore';
 
