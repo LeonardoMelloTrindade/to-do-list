@@ -2,8 +2,8 @@
     <Tabs value="0">
       <TabList>
         <div class="navigation">
-          <Tab value="0" @click="actionTab.onClickTabSession()">{{ tab }}</Tab>
-          <Tab value="1" @click="actionTab.onClickTabTask()">Tarefas</Tab>
+          <Tab class="nav-container-list__session-btn" value="0" @click="onClickTabSession()">{{ tab }}</Tab>
+          <Tab class="nav-container-list__task-btn" value="1" @click="onClickTabTask()">Tarefas</Tab>
         </div>
       </TabList>
       <TabPanels class="list">
@@ -22,7 +22,7 @@ import { useActionNavigation } from '@/store/ActionNavigationStore';
 import { Tabs, Tab, TabList, TabPanel, TabPanels } from 'primevue';
 
 const { tab } = defineProps(['tab']);
-const actionTab = useActionNavigation();
+const { onClickTabSession, onClickTabTask } = useActionNavigation();
 
 </script>
 

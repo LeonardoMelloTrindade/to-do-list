@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { customMount } from '@/tests/utils/index';
-import ContainerList from './ContainerList.vue';
 import { mockTasks, mockCategories, mockGroups } from '@/tests/mocks';
+import ContainerList from './ContainerList.vue';
 
 describe('ContainerList.vue', () => {
   it('should render ContainerList with prop Categories', () => {
