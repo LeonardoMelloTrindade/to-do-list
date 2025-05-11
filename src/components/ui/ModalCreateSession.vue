@@ -1,5 +1,5 @@
 <template>
-  <Dialog v-model:visible="localVisible" :header="`Criar ${label}`" :style="{ width: '25rem' }" position="top" :modal="true"
+  <Dialog class="modal-create-session__modal" v-model:visible="localVisible" :header="`Criar ${label}`" :style="{ width: '25rem' }" position="top" :modal="true"
     :draggable="false">
     <div class="container-item">
       <label for="item" class="font-semibold w-24">Nome: </label>
